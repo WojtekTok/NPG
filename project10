@@ -229,7 +229,7 @@ def Test_pl_to_ang():
     elif wynik == 10:
         print("Perfekcynie twoj wszystkie były prawidłowe")
 
-    return wynik
+    return wynik #test
 
 print("Twój wynik to : ",Test_pl_to_ang())
 

@@ -9,8 +9,8 @@ English_word = {        # nasza baza angielskich słów
     8: "fire",
     9: "sun",
     10: "moon",
-    11: "",
-    12: "",
+    11: "pen",
+    12: "pencil",
     13: "",
     14: "",
     15: "",
@@ -112,8 +112,8 @@ Polish_word = {             # nasza baza polskich słów
     8: "ogień",
     9: "słońce",
     10: "księżyc",
-    11: "",
-    12: "",
+    11: "długopis",
+    12: "ołówek",
     13: "",
     14: "",
     15: "",
@@ -227,7 +227,7 @@ def Test_pl_to_ang():
     elif 7 <= wynik <= 9:
         print("Bardzo ładnie jesteś blisko ideału")
     elif wynik == 10:
-        print("Perfekcynie twoj wszystkie były prawidłowe")
+        print("Perfekcynie twoj wszystkie odpowiedzi były prawidłowe")
 
     return wynik #test
 

@@ -49,4 +49,4 @@ def save_result_to_txt(result): # funkcja dostaje wynik uzytkownika i zapisuje g
 # przyklad działania dla 5 pytań:
 #save_result_to_txt(100)
 #print(ask_user_times(5))
-print("123")
+#print("123")

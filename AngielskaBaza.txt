@@ -1,4 +1,10 @@
-cat
-dog
-orange
-apple
+house
+child
+mom
+dad
+boy
+girl
+green
+red
+black
+blue

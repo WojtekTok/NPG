@@ -1,5 +1,10 @@
 dom
 dziecko
-babcia
 mama
 tata
+chlopak
+dziewczyna
+zielony
+czerowny
+czarny
+niebieski

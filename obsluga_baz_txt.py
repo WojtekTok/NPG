@@ -23,13 +23,20 @@ def ask_user(random_number): # funkcja pyta jeden raz uzytkownika o slowo o dany
     ans = input()  # odpowiedz uzytkownika
     return (int)(ans == correct_ans)  # zwracam 1 jezeli uzytkownik zgadl lub 0 jak nie zgadl
 
+def draw_from_whole_base(): # losuje pytanie z całej bazy (działa również gdy już dodamy swoje słowa)
+    with open("AngielskaBaza.txt", mode = "r") as base_to_draw:
+        numer_of_word = base_to_draw.readlines()
+        drawed_number = random.randrange(1, len(numer_of_word))
+        base_to_draw.close()
+    return drawed_number
+
 def ask_user_times(number_of_questions): # glowna funkcja przyjmuje argument ile pytan ma zadac uzytkownikowi, zwraca wynik( liczbe poprawnych odp)
     list = [] # lista tych numerow, zapobieganie powatrzaniou pytan
     current_result = 0  # poczatkowy wynik do ktorego funkcja dodaje
 
     i = 0
     while (i  < number_of_questions):  # tyle pytan ile funkcja dostala jako argument
-        random_number = random.randrange(1, 10)
+        random_number = draw_from_whole_base()
         if random_number not in list:
             list.append(random_number)
             current_result += ask_user(random_number) # dodaje +1 jak uzytkownik dobrze odpowie
@@ -44,9 +51,3 @@ def save_result_to_txt(result): # funkcja dostaje wynik uzytkownika i zapisuje g
         result_file.writelines(result_str)
         result_file.writelines("\n")
         result_file.close()
-
-
-# przyklad działania dla 5 pytań:
-#save_result_to_txt(100)
-#print(ask_user_times(5))
-#print("123")

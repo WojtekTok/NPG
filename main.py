@@ -1,1 +1,5 @@
-print("123")
+from obsluga_baz_txt import  *
+from adding_words import *
+
+
+adding_words()

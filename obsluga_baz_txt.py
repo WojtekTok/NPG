@@ -51,4 +51,3 @@ def save_result_to_txt(result): # funkcja dostaje wynik uzytkownika i zapisuje g
         result_file.writelines(result_str)
         result_file.writelines("\n")
         result_file.close()
-

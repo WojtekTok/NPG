@@ -7,11 +7,8 @@ dziewczyna
 zielony
 czerowny
 czarny
-<<<<<<< HEAD
 niebieski
-=======
 niebieski
 kon
 glowa
 jedzenie
->>>>>>> dominik_branch

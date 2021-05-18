@@ -8,3 +8,6 @@ green
 red
 black
 blue
+horse
+head
+food

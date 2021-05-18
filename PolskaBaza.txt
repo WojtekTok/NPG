@@ -8,7 +8,6 @@ zielony
 czerowny
 czarny
 niebieski
-niebieski
 kon
 glowa
 jedzenie

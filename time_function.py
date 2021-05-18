@@ -24,7 +24,15 @@ class Timer:
 
                 work_time += elapsed_time
 
-                print(f"Ta sesja trwa: {elapsed_time:0.4f} seconds")
-                print(f"W sumie program dziala juz: {work_time:0.4f} seconds")
+                print(f"Ta sesja trwala: {elapsed_time:0.4f} seconds")
+                print(f"W sumie program dzialal: {work_time:0.4f} seconds")
+
+                hold_time = work_time
 
             work_time_file.close()
+
+            with open("CzasDzialania.txt", "w") as work_time_save:
+
+                work_time_save.write(hold_time)
+                
+            work_time_save.close()

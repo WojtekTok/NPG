@@ -21,7 +21,7 @@ def ask_user(random_number): # funkcja pyta jeden raz uzytkownika o slowo o dany
 
     print("Podaj angielski odpowiednik słowa:", word, end="") # pytam uzytkownika o wylosowane slowo
     ans = input()  # odpowiedz uzytkownika
-    return (int)(ans == correct_ans)  # zwracam 1 jezeli uzytkownik zgadl lub 0 jak nie zgadl
+    return (int)(ans.lower() == correct_ans)  # zwracam 1 jezeli uzytkownik zgadl lub 0 jak nie zgadl
 
 def draw_from_whole_base(): # losuje pytanie z całej bazy (działa również gdy już dodamy swoje słowa)
     with open("AngielskaBaza.txt", mode = "r") as base_to_draw:
@@ -51,4 +51,3 @@ def save_result_to_txt(result): # funkcja dostaje wynik uzytkownika i zapisuje g
         result_file.writelines(result_str)
         result_file.writelines("\n")
         result_file.close()
-

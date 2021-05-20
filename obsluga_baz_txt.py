@@ -23,7 +23,7 @@ def ask_user(random_number):  # funkcja pyta jeden raz uzytkownika o slowo o dan
 
     print("Podaj angielski odpowiednik słowa:", word, end="")  # pytam uzytkownika o wylosowane slowo
     ans = input()  # odpowiedz uzytkownika
-    return (int)(ans == correct_ans)  # zwracam 1 jezeli uzytkownik zgadl lub 0 jak nie zgadl
+    return (int)(ans.lower() == correct_ans)  # zwracam 1 jezeli uzytkownik zgadl lub 0 jak nie zgadl
 
 
 def draw_from_whole_base():  # losuje pytanie z całej bazy (działa również gdy już dodamy swoje słowa)

@@ -7,12 +7,12 @@ def adding_words():
     
     with open("AngielskaBaza.txt", "a+") as english_write:
         english_write.write('\n')
-        english_write.write(english)
+        english_write.write(english.lower())
     english_write.close()
     
     with open("PolskaBaza.txt", "a+") as polish_write:
         polish_write.write('\n')
-        polish_write.write(polish)
+        polish_write.write(polish.lower())
     polish_write.close()
 
 #na razie basic bez podzialu na poziomy trudnosci

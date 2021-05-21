@@ -11,3 +11,6 @@ niebieski
 kon
 glowa
 jedzenie
+pieniadze
+malpa
+papieros

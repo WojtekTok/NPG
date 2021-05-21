@@ -11,3 +11,6 @@ blue
 horse
 head
 food
+money
+monkey
+cigarette

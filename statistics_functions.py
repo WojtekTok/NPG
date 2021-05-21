@@ -1,4 +1,4 @@
-def show_average_last_five(): #funkcja pokazująca średnią z ostatnich (5) prób
+def average_last_five(): #funkcja zwraca średnią z ostatnich (5) prób
     with open("results_user.txt", mode = "r") as result_file:
         list_of_results_int = [int(elem) for elem in result_file.readlines()]
         suma = 0
@@ -10,7 +10,7 @@ def show_average_last_five(): #funkcja pokazująca średnią z ostatnich (5) pr�
         return float(suma/5) # dla 5
 
 
-def show_total_average(): #funkcja pokazująca średnią arytmetyczna z wszystkich wyników
+def average_total(): #funkcja zwraca średnią arytmetyczna z wszystkich wyników
     with open("results_user.txt", mode = "r") as result_file:
         list_of_results_int = [int(elem) for elem in result_file.readlines()]
 

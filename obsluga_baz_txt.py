@@ -48,6 +48,5 @@ def ask_user_times(number_of_questions): # glowna funkcja przyjmuje argument ile
 def save_result_to_txt(result): # funkcja dostaje wynik uzytkownika i zapisuje go w nowej lini pliku txt results_user.txt
     result_str = (str)(result)
     with open("results_user.txt", mode = "a") as result_file: 
-        result_file.writelines(result_str)
-        result_file.writelines("\n")
+        result_file.writelines('\n' + result_str)
         result_file.close()

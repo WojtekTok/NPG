@@ -2,8 +2,8 @@ import random
 from tkinter import *
 
 root = Tk()  # tworzę 'okienko'
-root.title("Fiszki")  #tytuł
-root.geometry('500x500') #rozmiar okna
+root.title("Fiszki")
+root.geometry('500x500')
 
 def check_polish_word(random_number):   #funkcja zwraca slowo o danym indeksie z bazy pol
     with open("PolskaBaza.txt", "r") as pol_base_file:
@@ -25,13 +25,13 @@ def ask_user(random_number): # funkcja pyta jeden raz uzytkownika o slowo o dany
     correct_ans = check_ang_word(random_number).strip()
     myLabel4 = Label(root, text="Podaj angielski odpowiednik słowa:" + word).place(x=100,y=250)
     button_4.place(x=300, y=350)
-    e = Entry(root, width=35, borderwidth=5) #tworzę pole w którym można wpisywać
-    e.place(x=130, y=300)#miejsce okienka do wpisywanie
-    root.update() #trzeba odświeżyć bo inaczej nie dziala xd
-    button_4.wait_variable(var) #funkcja która czeka na zmianę 'var'
+    e = Entry(root, width=35, borderwidth=5)
+    e.place(x=130, y=300)
+    root.update()
+    button_4.wait_variable(var)
     print("Podaj angielski odpowiednik słowa:", word, end="") # pytam uzytkownika o wylosowane slowo
     ans = str(e.get())# odpowiedz uzytkownika
-    e.delete(0, END) #usuwanie tego co było wpisane
+    e.delete(0, END)
     return (int)(ans.lower() == correct_ans)  # zwracam 1 jezeli uzytkownik zgadl lub 0 jak nie zgadl
 
 def draw_from_whole_base(): # losuje pytanie z całej bazy (działa również gdy już dodamy swoje słowa)
@@ -80,9 +80,9 @@ def callback(): #funkcja która reaguje jak sie kliknie poziom średni.
 
 myLabel1 = Label(root, text = "Wybierz poziom trudnośći!").pack()
 
-button_1 = Button(root, text='łatwy',padx=40, pady = 40)
-button_2 = Button(root, text='średni',padx=40, pady = 40, command=callback)
-button_3 = Button(root, text='trudny',padx=40, pady = 40)
+button_1 = Button(root, text='łatwy',padx=40, pady = 40, bg="green")
+button_2 = Button(root, text='średni',padx=40, pady = 40, command=callback,bg="yellow")
+button_3 = Button(root, text='trudny',padx=40, pady = 40,bg="red")
 button_4 = Button(root, text="dalej", command=lambda: var.set(1)) #funkcje buttonów
 button_1.place(x=60,y=20)
 button_2.place(x=190,y=20)

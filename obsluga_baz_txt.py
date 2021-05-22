@@ -29,7 +29,6 @@ def ask_user(random_number): # funkcja pyta jeden raz uzytkownika o slowo o dany
     e.place(x=130, y=300)
     root.update()
     button_4.wait_variable(var)
-    print("Podaj angielski odpowiednik słowa:", word, end="") # pytam uzytkownika o wylosowane slowo
     ans = str(e.get())# odpowiedz uzytkownika
     e.delete(0, END)
     return (int)(ans.lower() == correct_ans)  # zwracam 1 jezeli uzytkownik zgadl lub 0 jak nie zgadl

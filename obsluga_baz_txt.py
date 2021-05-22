@@ -1,14 +1,19 @@
 import random
+from tkinter import *
+
+root = Tk()  # tworzę 'okienko'
+root.title("Fiszki")  #tytuł
+root.geometry('500x500') #rozmiar okna
 
 def check_polish_word(random_number):   #funkcja zwraca slowo o danym indeksie z bazy pol
-    with open("PolskaBaza.txt", mode = "r") as pol_base_file:
+    with open("PolskaBaza.txt", "r") as pol_base_file:
         pol_base = pol_base_file.readlines()
 
     pol_base_file.close()
     return pol_base[random_number]
 
 def check_ang_word(random_number): # funkcja zwraca slowo o danym indeksie z bazy ang
-    with open("AngielskaBaza.txt", mode = "r") as ang_base_file:
+    with open("AngielskaBaza.txt", "r") as ang_base_file:
         ang_base = ang_base_file.readlines()
 
     ang_base_file.close()
@@ -18,13 +23,19 @@ def check_ang_word(random_number): # funkcja zwraca slowo o danym indeksie z baz
 def ask_user(random_number): # funkcja pyta jeden raz uzytkownika o slowo o danym indeksiem, sprawdza czy odpowiedzial dobrze i zwraca 1 lub 0
     word = check_polish_word(random_number)
     correct_ans = check_ang_word(random_number).strip()
-
+    myLabel4 = Label(root, text="Podaj angielski odpowiednik słowa:" + word).place(x=100,y=250)
+    button_4.place(x=300, y=350)
+    e = Entry(root, width=35, borderwidth=5) #tworzę pole w którym można wpisywać
+    e.place(x=130, y=300)#miejsce okienka do wpisywanie
+    root.update() #trzeba odświeżyć bo inaczej nie dziala xd
+    button_4.wait_variable(var) #funkcja która czeka na zmianę 'var'
     print("Podaj angielski odpowiednik słowa:", word, end="") # pytam uzytkownika o wylosowane slowo
-    ans = input()  # odpowiedz uzytkownika
+    ans = str(e.get())# odpowiedz uzytkownika
+    e.delete(0, END) #usuwanie tego co było wpisane
     return (int)(ans.lower() == correct_ans)  # zwracam 1 jezeli uzytkownik zgadl lub 0 jak nie zgadl
 
 def draw_from_whole_base(): # losuje pytanie z całej bazy (działa również gdy już dodamy swoje słowa)
-    with open("AngielskaBaza.txt", mode = "r") as base_to_draw:
+    with open("AngielskaBaza.txt", "r") as base_to_draw:
         numer_of_word = base_to_draw.readlines()
         drawed_number = random.randrange(1, len(numer_of_word))
         base_to_draw.close()
@@ -33,7 +44,6 @@ def draw_from_whole_base(): # losuje pytanie z całej bazy (działa również gd
 def ask_user_times(number_of_questions): # glowna funkcja przyjmuje argument ile pytan ma zadac uzytkownikowi, zwraca wynik( liczbe poprawnych odp)
     list = [] # lista tych numerow, zapobieganie powatrzaniou pytan
     current_result = 0  # poczatkowy wynik do ktorego funkcja dodaje
-
     i = 0
     while (i  < number_of_questions):  # tyle pytan ile funkcja dostala jako argument
         random_number = draw_from_whole_base()
@@ -47,6 +57,38 @@ def ask_user_times(number_of_questions): # glowna funkcja przyjmuje argument ile
 
 def save_result_to_txt(result): # funkcja dostaje wynik uzytkownika i zapisuje go w nowej lini pliku txt results_user.txt
     result_str = (str)(result)
-    with open("results_user.txt", mode = "a") as result_file: 
+    with open("results_user.txt", "a") as result_file:
         result_file.writelines('\n' + result_str)
         result_file.close()
+
+
+var = IntVar()
+value = 1
+
+
+def callback(): #funkcja która reaguje jak sie kliknie poziom średni.
+    global value
+    value -= 1
+    if value == 0:
+        a = ask_user_times(5)
+        myLabel2 = Label(root,text = "Twój wynik to " + str(a)).place(x = 150, y = 400)
+        save_result_to_txt(a)
+        value = 1
+    else:
+        pass
+
+
+myLabel1 = Label(root, text = "Wybierz poziom trudnośći!").pack()
+
+button_1 = Button(root, text='łatwy',padx=40, pady = 40)
+button_2 = Button(root, text='średni',padx=40, pady = 40, command=callback)
+button_3 = Button(root, text='trudny',padx=40, pady = 40)
+button_4 = Button(root, text="dalej", command=lambda: var.set(1)) #funkcje buttonów
+button_1.place(x=60,y=20)
+button_2.place(x=190,y=20)
+button_3.place(x=320,y=20) #pozycje buttonów latwy sredni trudny
+
+
+button_quit = Button(root, text="Exit Programm", command=root.quit)
+button_quit.place(x= 190,y =460) #pozycja button quixt
+root.mainloop()  # komenda aby okienko się nie zamknęło
